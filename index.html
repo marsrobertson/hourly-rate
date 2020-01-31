@@ -33,9 +33,19 @@
 <a class="github-fork-ribbon" href="https://github.com/genesisdotre/trustless-token-transfer-trade" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
 
 <div class="container-main-wrapper"> <!-- dont't want to use generic names like "container" -->
-     <h1>OTC TTTT - Trustless Token Transfer Trade</h1>  
+     <h1>Hourly rate</h1>  
 
-     <p>Check <a href="https://github.com/genesisdotre/trustless-token-transfer-trade">readme on GitHub</a> for more detailed information about the code and design.</p>
+    
+     PNK: <input type="text" id="pnk" value="" readonly>
+     <br>
+     <br>
+     <br>
+     DAI: <input type="text" id="dai" value="" readonly>
+
+
+
+
+     <!-- <p>Check <a href="https://github.com/genesisdotre/trustless-token-transfer-trade">readme on GitHub</a> for more detailed information about the code and design.</p>
 
      <strong>Deployed to Ropsten and verified on Etherscan.</strong>
 
@@ -46,7 +56,7 @@
      <p>Send some Ropsten (testnet) ETH to the OTC TTTT and receive some random worthless ERC20 token!</p>
 
     <center>
-     <label for="rate" id="rateLabel">&nbsp;<!-- inserted dynamically via JavaScript --></label>
+     <label for="rate" id="rateLabel">&nbsp;</label>
      <input type="text" id="rate" readonly><br>
      <label for="validTo">Rate valid till:</label>
      <input type="text" id="validTo" readonly>
@@ -60,15 +70,18 @@
       <br>
       <input type="submit" id="send" value="Trade">
      </form>
-    </center>
+    </center> -->
+
+
+
 </div> <!-- container-main-wrapper -->
 
-     <script src="web/lib/assist.min.js"></script>
+     <script src="web/app.js"></script>
      <script>
        const web3 = new Web3(Web3.givenProvider || 'ws://localhost:8546', null, {}); // initialising it: https://web3js.readthedocs.io/en/1.0/getting-started.html
-       console.log("It works: " + web3.version);
+       init();
      </script>
-     <script src="web/app.js"></script>
+     
 
   </body>
 </html>
