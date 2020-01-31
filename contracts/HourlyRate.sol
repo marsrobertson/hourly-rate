@@ -10,12 +10,12 @@ contract HourlyRate {
 	using SafeMath for uint256;
 
 	// MAINNET
-	// address PNKaddr = "0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d"; // https://etherscan.io/address/0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d
-	// address DAIaddr = "0x6b175474e89094c44da98b954eedeac495271d0f"; // https://etherscan.io/address/0x6b175474e89094c44da98b954eedeac495271d0f
+	// address PNKaddr = 0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d; // https://etherscan.io/address/0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d
+	// address DAIaddr = 0x6b175474e89094c44da98b954eedeac495271d0f; // https://etherscan.io/address/0x6b175474e89094c44da98b954eedeac495271d0f
 
 	// KOVAN
-	address PNKaddr = "0xec25392E13eA5a3a43BDA3279D11ab533e7B12f0"; // https://etherscan.io/address/0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d
-	address DAIaddr = "0x311FABaE9000F246cf34Ac47FF3dE76ebAA3609A"; // https://etherscan.io/address/0x6b175474e89094c44da98b954eedeac495271d0f
+	address PNKaddr = 0xec25392E13eA5a3a43BDA3279D11ab533e7B12f0; // https://etherscan.io/address/0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d
+	address DAIaddr = 0x311FABaE9000F246cf34Ac47FF3dE76ebAA3609A; // https://etherscan.io/address/0x6b175474e89094c44da98b954eedeac495271d0f
 
 	ERC20 PNK;
 	ERC20 DAI;
@@ -25,7 +25,6 @@ contract HourlyRate {
 	uint public hourlyRatePNK;
 
 	constructor(uint _hourlyRateDAI, uint _hourlyRatePNK) public {
-		employes = msg.sender;
 
 		hourlyRateDAI = _hourlyRateDAI;
 		hourlyRatePNK = _hourlyRatePNK;
@@ -43,7 +42,7 @@ contract HourlyRate {
 		DAI.approve(address(this), amount);
 	}
 
-	function approveDAI(uint amount) public {
+	function approvePNKDAI(uint amount) public {
 		PNKDAI.approve(address(this), amount);
 	}
 
@@ -56,7 +55,7 @@ contract HourlyRate {
 	}
 
 	function redeemPNKDAI(uint hoursNumber) public {
-		PNKDAI.burnFrom(msg.sender);
+		PNKDAI.burnFrom(msg.sender, hoursNumber);
 		PNK.transfer(msg.sender, hoursNumber.mul(hourlyRatePNK));
 		DAI.transfer(msg.sender, hoursNumber.mul(hourlyRateDAI));
 	}
