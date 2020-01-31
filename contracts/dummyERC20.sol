@@ -5,8 +5,8 @@ import "../node_modules/@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol";
 import "../node_modules/@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol";
 import "../node_modules/@openzeppelin/contracts/math/SafeMath.sol";
 
-contract PNKkovan is ERC20Burnable, ERC20Mintable, ERC20Detailed {
-	constructor (string name, string symbol, uint decimals) public ERC20Detailed(name, symbol, decimals) {
+contract DummyERC20 is ERC20Burnable, ERC20Mintable, ERC20Detailed {
+	constructor (string memory name, string memory symbol, uint8 decimals) public ERC20Detailed(name, symbol, decimals) {
         // solhint-disable-previous-line no-empty-blocks
     }
 }
