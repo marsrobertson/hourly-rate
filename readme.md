@@ -1,3 +1,16 @@
+### WORK ~IN PROGRESS~ PAUSED
+
+Have some troubles instantiating the contracts in tests.
+
+Something silly nitty gritty technical.
+
+In fact, human solutions to technical problems are the best because do not require coding.
+
+Spent a few exciting hours working on the code but unlikely I'll use it at the moment.
+
+
+----
+
 
 Already deployed dummy ERC20:
 * DAI Kovan: https://kovan.etherscan.io/address/0x311fabae9000f246cf34ac47ff3de76ebaa3609a#readContract
@@ -14,4 +27,3 @@ How to deploy your own:
 * `truffle-flattener contracts/HourlyRate.sol > hourly.sol`
 * go to https://remix.ethereum.org
 * configure DAI and PNK addresses
-* try to verify on Etherscan?
