@@ -26,23 +26,24 @@ contract('Hourly Rate', async function(accounts) {
 
         let hourlyRate = await HourlyRate.new(PNK.address, toWei("10000"), DAI.address, toWei("50"), { from: creator } );
 
-        hourlyRate.approvePNK(200000, { from: employer });
-        hourlyRate.approveDAI(10000, { from: employer });
-        hourlyRate.mintPNKDAI(20);
+        await hourlyRate.approvePNK(200000, { from: employer });
+        await hourlyRate.approveDAI(10000, { from: employer });
+        await hourlyRate.mintPNKDAI(1, { from: employer });
 
+
+        let PNKDAIaddress = await hourlyRate.PNKDAIaddress.call();
+
+        console.log("hourlyRate.PNKDAI: \n-----------------")
         console.log(hourlyRate.PNKDAI);
-
+        console.log(PNKDAIaddress);
         console.log("-----------------")
 
-        let PNKDAI = new PNKDAIamalgam(hourlyRate.PNKDAI)
+        let PNKDAI = await PNKDAIamalgam.at(PNKDAIaddress);
 
-
-        let employerPNKDAI = await PNKDAI.balanceOf(employer);
-
+        let employerPNKDAI = await PNKDAI.balance(employer);
         console.log(employerPNKDAI);
-        
-        // assert.equal(employerPNKDAI, toWei("20"), "Employer shouold have 20 tokens of PNKDAI");
 
+        assert.equal(employerPNKDAI, toWei("1"), "Employer shouold have 1 tokens of PNKDAI");
 
     });
 

@@ -23,6 +23,7 @@ contract HourlyRate {
 	ERC20 public PNK;
 	ERC20 public DAI;
 	PNKDAIamalgam public PNKDAI;
+	address public PNKDAIaddress;
 
 	uint public hourlyRateDAI;
 	uint public hourlyRatePNK;
@@ -37,6 +38,7 @@ contract HourlyRate {
 		PNK = ERC20(PNKaddr);
 		DAI = ERC20(DAIaddr);
 		PNKDAI = new PNKDAIamalgam("PNK DAI amalgam", "PNKDAI", 18);
+		PNKDAIaddress = address(PNKDAI);
 	}
 
 	function approvePNK(uint amount) public {
