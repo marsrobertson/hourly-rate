@@ -23,7 +23,7 @@ contract HourlyRate {
 	ERC20 public PNK;
 	ERC20 public DAI;
 	PNKDAIamalgam public PNKDAI;
-	address public PNKDAIaddress;
+	address public PNKDAIaddress; // FIXME: I have some issues accesssing this variable in tests (explicitly exposing it)
 
 	uint public hourlyRateDAI;
 	uint public hourlyRatePNK;
@@ -37,21 +37,21 @@ contract HourlyRate {
 
 		PNK = ERC20(PNKaddr);
 		DAI = ERC20(DAIaddr);
-		PNKDAI = new PNKDAIamalgam("PNK DAI amalgam", "PNKDAI", 18);
+		PNKDAI = new PNKDAIamalgam("PNK DAI amalgam", "PNKDAI", 0);
 		PNKDAIaddress = address(PNKDAI);
 	}
 
-	function approvePNK(uint amount) public {
-		PNK.approve(address(this), amount);
-	}
+	// function approvePNK(uint amount) public {
+	// 	PNK.approve(address(this), amount);
+	// }
 
-	function approveDAI(uint amount) public {
-		DAI.approve(address(this), amount);
-	}
+	// function approveDAI(uint amount) public {
+	// 	DAI.approve(address(this), amount);
+	// }
 
-	function approvePNKDAI(uint amount) public {
-		PNKDAI.approve(address(this), amount);
-	}
+	// function approvePNKDAI(uint amount) public {
+	// 	PNKDAI.approve(address(this), amount);
+	// }
 
 	// PNK and DAI are owned by the HourlyRate contract
 	// in the functions above we enabled PNK and DAI for transfers
